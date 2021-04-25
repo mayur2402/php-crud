@@ -10,17 +10,19 @@
 		Enter City<input type="text" name="city"><br> 
 		<input type="submit" name="submit" value="submit">
 	</form>
+
+
 </body>
 </html>
 
 <?php
-//change to check
+
 $host = 'localhost:3306';  
 $user = 'root';  
 $pass = 'mayur123';
 $dbname = 'test';
 if(isset($_POST['submit'])){
-	$conn = mysqli_connect($host, $user, $pass, $dbname);  
+	$conn = new mysqli($host, $user, $pass, $dbname);  
 	if(! $conn )  
 	{  
 	  die('Could not connect: ' . mysqli_error());  
@@ -30,9 +32,13 @@ if(isset($_POST['submit'])){
 	$name = $_POST['name'];
 	$city = $_POST['city'];
 
-	$query = 'INSERT INTO user VALUES("$rollno","$name","$city")';
+	echo $rollno;
 
-	mysqli_query($conn,$query);
+	$query = "INSERT INTO user (rollno,name,city) VALUES($rollno,'$name','$city')";
+
+	$ret = $conn->query($query);
+
+	echo $ret;
 
 	mysqli_close($conn);  
 }
