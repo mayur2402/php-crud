@@ -32,8 +32,6 @@ if(isset($_POST['submit'])){
 	$name = $_POST['name'];
 	$city = $_POST['city'];
 
-	echo $rollno;
-
 	$query = "INSERT INTO user (rollno,name,city) VALUES($rollno,'$name','$city')";
 
 	$ret = $conn->query($query);
