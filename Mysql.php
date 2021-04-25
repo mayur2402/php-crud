@@ -13,7 +13,8 @@
 </body>
 </html>
 
-<?php  
+<?php
+//change to check
 $host = 'localhost:3306';  
 $user = 'root';  
 $pass = 'mayur123';
